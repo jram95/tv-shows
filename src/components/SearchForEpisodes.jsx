@@ -4,6 +4,7 @@
 
 import { useState } from "react"
 import FilteredList from "./FilteredList";
+import "./SearchForEpisodes.css";
 
 export default function SearchForEpisodes({episodes}){
     const [searchTerm, setSearchTerm] = useState("");
@@ -17,11 +18,15 @@ export default function SearchForEpisodes({episodes}){
 
     return (
         <>
-        <input 
-            placeholder="search away!"
-            value={searchTerm}
-            onChange={handleSearch}
-        />
+        <div class="search-input">
+            <input 
+                class="search-box"
+                placeholder="search away..."
+                value={searchTerm}
+                onChange={handleSearch}
+            />
+            <div>Displaying {filteredResults.length}/{episodes.length} episodes</div>
+        </div>
         <FilteredList episodes={filteredResults} />
         </>
     )
