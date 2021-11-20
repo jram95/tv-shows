@@ -3,7 +3,7 @@
 // made case insensitive using helper function
 
 import { useState } from "react"
-import FilteredList from "./FilteredList";
+import EpisodesList from "./EpisodesList";
 import "./SearchForEpisodes.css";
 
 export default function SearchForEpisodes({episodes}){
@@ -14,7 +14,6 @@ export default function SearchForEpisodes({episodes}){
     }
 
     const filteredResults = filterSearch(episodes, searchTerm)
-    console.log( filteredResults)
 
     return (
         <>
@@ -27,22 +26,19 @@ export default function SearchForEpisodes({episodes}){
             />
             <div>Displaying {filteredResults.length}/{episodes.length} episodes</div>
         </div>
-        <FilteredList episodes={filteredResults} />
+        <EpisodesList episodes={filteredResults} />
         </>
     )
 }
 
-//utility function for live search
+//helper function to filter
 function filterSearch(episodes, searchTerm){
-    return episodes.filter((episode) => (episodeMatchesSearchTerm(episode, searchTerm)))
+    return episodes.filter(episodeMatchesSearchTerm(episode, searchTerm));
 }
 
-// function that returns true if search term is in name/summary of episode
-// if it returns true, the filter method will return everything that matches
 function episodeMatchesSearchTerm(episode, searchTerm){
     return (
-        !searchTerm ||
-        contains(episode.name, searchTerm) || contains(episode.summary, searchTerm)
+        episode.name.includes(searchTerm) || episode.summary.includes(searchTerm)
     )
 }
 

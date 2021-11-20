@@ -1,6 +1,6 @@
-import AllEpisodes from "./components/AllEpisodes";
 import SearchForEpisodes from "./components/SearchForEpisodes";
 import episodeData from "./ShowData.json";
+import "./App.css";
 
 function App() {
   return (

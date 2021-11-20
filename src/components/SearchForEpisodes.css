@@ -1,0 +1,13 @@
+.search-input {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: small;
+    color:chocolate
+}
+
+.search-box {
+    height: 20px;
+    font-size: small;
+    outline: rgb(20, 71, 7);
+    outline-width: thick;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
